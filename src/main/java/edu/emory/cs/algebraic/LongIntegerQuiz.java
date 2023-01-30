@@ -24,23 +24,23 @@ public class LongIntegerQuiz extends LongInteger {
 
     @Override
     protected void addDifferentSign(LongInteger n) {
-        int big= compareAbs(n);
-        if (big==0){
-            digits=new byte[1];
+        int big = compareAbs(n);
+        //if they cancel out we directly return it
+        if (big == 0){
+            digits = new byte[1];
             return;
         }
-        //determine sign
-        if (big>0&&isPositive() || big<0&&n.isPositive()){
-            sign=Sign.POSITIVE;
+        //determine sign of the result
+        if (big > 0 && isPositive() || big < 0 && n.isPositive()){
+            sign = Sign.POSITIVE;
         }else{
-            sign=Sign.NEGATIVE;
+            sign = Sign.NEGATIVE;
         }
-        //carry out calculation
-        //first create result array
+        //to carry out calculation, we first create result array
         int m = Math.max(digits.length, n.digits.length);
         byte[] result = new byte[m+1];
-        //if big>0 copy this and subtract n
-        if (big>0) {
+        //then if big>0, copy "this" and subtract n
+        if (big > 0) {
             System.arraycopy(digits, 0, result, 0, digits.length);
             for (int i = 0; i < m; i++) {
                 if (i < n.digits.length)
@@ -50,7 +50,7 @@ public class LongIntegerQuiz extends LongInteger {
                     result[i + 1] -= 1;
                 }
             }
-            //else copy n subtract this
+            //else copy n subtract "this"
         }else{
             System.arraycopy(n.digits, 0, result, 0, n.digits.length);
             for (int i = 0; i < m; i++) {
@@ -64,11 +64,10 @@ public class LongIntegerQuiz extends LongInteger {
         }
 
         //now get rid off zeros at the front
-        while (result[m]==0&&m>0){
-            m-=1;
+        while (result[m] == 0 && m > 0){
+            m -= 1;
         }
-
-
+        //then copy result into digits
         digits = Arrays.copyOf(result, m+1);
     }
 }
