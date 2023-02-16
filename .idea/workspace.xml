@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="quiz 2 code part finished">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/HeapSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/InsertionSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/SelectionSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/ShellSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/ShellSortKnuth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/ShellSortQuiz.java" afterDir="false" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="quiz 3 initialization progress checkpoint">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/AbstractSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/sort/SortQuizTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +76,7 @@
       <updated>1674079893659</updated>
       <workItem from="1674079895926" duration="16611000" />
       <workItem from="1676263039118" duration="10450000" />
-      <workItem from="1676583302802" duration="1783000" />
+      <workItem from="1676583302802" duration="2215000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -117,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676571630582</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="quiz 3 initialization progress checkpoint">
+      <created>1676586770713</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676586770713</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +130,8 @@
     <MESSAGE value="hi, now it's after office hours first push" />
     <MESSAGE value="quiz1 first attemp" />
     <MESSAGE value="quiz 2 code part finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="quiz 2 code part finished" />
+    <MESSAGE value="quiz 3 initialization progress checkpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="quiz 3 initialization progress checkpoint" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
