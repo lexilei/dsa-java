@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="quiz 2 code part finished">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/queue/TernaryHeapQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/queue/TernaryHeapQuiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/HeapSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/InsertionSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/SelectionSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/ShellSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/ShellSortKnuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/sort/comparison/ShellSortQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +79,8 @@
       <option name="presentableId" value="Default" />
       <updated>1674079893659</updated>
       <workItem from="1674079895926" duration="16611000" />
-      <workItem from="1676263039118" duration="7257000" />
+      <workItem from="1676263039118" duration="10450000" />
+      <workItem from="1676583302802" duration="1783000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -103,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676571199102</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="quiz 2 code part finished">
+      <created>1676571630580</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676571630582</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
