@@ -40,26 +40,27 @@ public class RadixSortQuiz extends RadixSort {
         for (int i = beginIndex; i < endIndex; i++) {
             int num = array[i] / (int) Math.pow(10, b-1);
             count[num%10]++;
+            System.out.println(array[i]);
         }
 
         for (int i = 1; i < 10; i++) {
             count[i] += count[i - 1];
-            System.out.println(count[i]);
         }
 
 
-        int[] sorted = new int[endIndex - beginIndex + 1];
+        int[] sorted = new int[endIndex - beginIndex ];
 
         // sort elements based on the current digit
         for (int i = endIndex-1; i >= beginIndex; i--) {
-            int num = (int)(array[i] / Math.pow(10, b-1))-1;
-            sorted[count[num%10]] = array[i];
+            int num = (int)(array[i-1] / Math.pow(10, b-1));
+            sorted[count[num%10-1]-2] = array[i-1];
             count[num%10]++;
         }
 
         // copy the sorted elements back to the original array
         for (int i = beginIndex; i < endIndex; i++) {
             array[i] = sorted[i-beginIndex];
+            System.out.println(array[i]);
         }
 
         // recursively sort elements based on the next digit
