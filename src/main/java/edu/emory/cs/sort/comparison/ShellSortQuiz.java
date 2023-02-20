@@ -51,11 +51,11 @@ public class ShellSortQuiz<T extends Comparable<T>> extends ShellSort<T> {
         return index;
     }
     public static void main(String[] args){
-        Integer[] test=new Integer[]{2,345,1,5,2,7,4,86,234,356,12};
+        Integer[] t=new Integer[]{2,345,1,5,2,7,4,86,234,356,12};
         ShellSortQuiz testee=new ShellSortQuiz();
-        testee.sort(test);
-        for (int i=0;i<test.length;i++){
-            System.out.print(test[i]+",");
+        testee.sort(t);
+        for (int i=0;i<t.length;i++){
+            System.out.print(t[i]+",");
         }
     }
 
