@@ -13,30 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package edu.emory.cs.sort.distribution;
 
-package edu.emory.cs.utils;
+/**
+ * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
+ */
+public class IntegerBucketSort extends BucketSort<Integer> {
+    private final int MIN;
 
-import java.util.Random;
-
-public class Utils {
-    static public int getMiddleIndex(int beginIndex, int endIndex) {
-        return beginIndex + (endIndex - beginIndex) / 2;
+    /**
+     * @param min the minimum integer (inclusive).
+     * @param max the maximum integer (exclusive).
+     */
+    public IntegerBucketSort(int min, int max) {
+        super(max - min);
+        MIN = min;
     }
 
-    static public int[] getRandomIntArray(Random rand, int size) {
-        int[] array = new int[size];
-
-        for (int i = 0; i < size; i++)
-            array[i] = rand.nextInt();
-
-        return array;
-    }
-
-    static public double log2(int i) {
-        return Math.log(i) / Math.log(2);
-    }
-
-    static public void main(String[] args) {
-        System.out.println(getMiddleIndex(0, 10));
+    @Override
+    public void sort(Integer[] array, int beginIndex, int endIndex) {
+        sort(array, beginIndex, endIndex, key -> key - MIN);
     }
 }

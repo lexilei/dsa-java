@@ -13,51 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.emory.cs.sort.comparison;
-
-import edu.emory.cs.sort.distribution.RadixSortQuiz;
-
-import java.util.Collections;
-import java.util.Comparator;
+package edu.emory.cs.sort.distribution;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class ShellSortQuiz<T extends Comparable<T>> extends ShellSort<T> {
-    public ShellSortQuiz() {
-        this(Comparator.naturalOrder());
-    }
-
-    public ShellSortQuiz(Comparator<T> comparator) {
-        super(comparator);
-    }
-
+public class RadixSortQuiz extends RadixSort {
     @Override
-    protected void populateSequence(int n) {
-        n /= 2;
-
-        for (int t = sequence.size() + 1; ; t++) {
-            int h = (int) (Math.pow(2, t) - 1) ;
-            if (h <= n) sequence.add(h);
-            else break;
+    public void sort(Integer[] array, int beginIndex, int endIndex) {
+        int maxBit = getMaxBit(array, beginIndex, endIndex);
+        for (int bit = maxBit-1; bit >=0 ; bit--) {
+            int div = (int)Math.pow(10, bit);
+            sort(array, beginIndex, endIndex, key -> (key / div) % 10);
         }
-    }
-
-    @Override
-    protected int getSequenceStartIndex(int n) {
-        int index = Collections.binarySearch(sequence, n / 2);
-        if (index < 0) index = -(index + 1);
-        if (index == sequence.size()) index--;
-        return index;
     }
     public static void main(String[] args){
         Integer[] test=new Integer[]{2,345,1,5,2,7,4,86,234,356,12};
-        ShellSortQuiz testee=new ShellSortQuiz();
+        RadixSortQuiz testee=new RadixSortQuiz();
         testee.sort(test);
         for (int i=0;i<test.length;i++){
             System.out.print(test[i]+",");
         }
     }
-
-
 }
