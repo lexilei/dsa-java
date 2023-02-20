@@ -36,7 +36,7 @@ public class RadixSortQuiz extends RadixSort {
         }
 
         int[] count = new int[10];
-
+//
         for (int i = beginIndex; i < endIndex; i++) {
             int num = array[i] / (int) Math.pow(10, b-1);
             count[num%10]++;
