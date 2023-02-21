@@ -34,11 +34,11 @@ public class RadixSortQuiz extends RadixSort {
         if (beginIndex >= endIndex || b <= 0) {
             return;
         }
-
+        int div = (int)Math.pow(10, b-1);
         int[] count = new int[10];
 
         for (int i = beginIndex; i < endIndex; i++) {
-            int num = array[i] / (int) Math.pow(10, b-1);
+            int num = array[i] / div;
             count[num%10]++;
         }
 
@@ -47,7 +47,7 @@ public class RadixSortQuiz extends RadixSort {
         }
 
         //now sort the array
-        int div = (int)Math.pow(10, b-1);
+
         sort(array, beginIndex, endIndex, key -> (key / div) % 10);
 
         int nextLeft =beginIndex;
