@@ -85,7 +85,7 @@ public class SortTest {
         final int init_size = 1000;
         final int inc = 1000;
         final int iter = 1000;
-        final InputNature nature = InputNature.RANDOM;
+        final InputNature nature = InputNature.DESCENDING;
 
         for (int size = init_size; size <= max_size; size += inc) {
             // JVM warmup
