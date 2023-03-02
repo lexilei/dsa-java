@@ -35,11 +35,7 @@ public class HybridSortHW<T extends Comparable<T>> implements HybridSort<T>  {
     IntroSort intro= new IntroSort<T>(new ShellSortKnuth<T>());
     @Override
     public T[] sort(T[][] input) {
-        //new merging idea:
-        //create only 1 final array
-        //int l=0;
         for (int i = 0; i < input.length; i++) {
-            //l+=input[i].length;
             if (!checkAscending(input[i])) {
                 if (checkDescending(input[i])) {
                     reverseArray(input[i]);
@@ -48,11 +44,8 @@ public class HybridSortHW<T extends Comparable<T>> implements HybridSort<T>  {
                 }
             }
         }
-        //return mergenatural(input);
         return mergeRecursive(input);
     }
-
-
 
 
     public boolean checkAscending(T[] input) {
@@ -95,24 +88,17 @@ public class HybridSortHW<T extends Comparable<T>> implements HybridSort<T>  {
         T[][] right = Arrays.copyOfRange(input, mid, input.length);
         return merge2Arrays(mergeRecursive(left), mergeRecursive(right));
     }
-    public T[] mergenatural(T[][] input){
-        T[] temp=input[0];
-        for (int i=1;i<input.length;i++){
-            temp=merge2Arrays(temp, input[i]);
-        }
-        return temp;
-    }
 
     private T[] merge2Arrays(T[] a, T[] b) {
         int i = 0, j = 0, k = 0;
-        T[] merged = (T[])Array.newInstance(a[0].getClass(), a.length + b.length);
+        T[] result = (T[])Array.newInstance(a[0].getClass(), a.length + b.length);
         while (i < a.length && j < b.length) {
-            if (a[i].compareTo(b[j]) < 0) merged[k++] = a[i++];
-            else merged[k++] = b[j++];
+            if (a[i].compareTo(b[j]) < 0) result[k++] = a[i++];
+            else result[k++] = b[j++];
         }
-        while (i < a.length) merged[k++] = a[i++];
-        while (j < b.length) merged[k++] = b[j++];
-        return merged;
+        while (i < a.length) result[k++] = a[i++];
+        while (j < b.length) result[k++] = b[j++];
+        return result;
     }
 
 }
