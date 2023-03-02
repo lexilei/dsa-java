@@ -17,9 +17,12 @@ package edu.emory.cs.sort.hybrid;
 import java.util.Arrays;
 import java.util.List;
 import edu.emory.cs.sort.AbstractSort;
+import edu.emory.cs.sort.comparison.ShellSortKnuth;
 import edu.emory.cs.sort.comparison.ShellSortQuiz;
 
 import edu.emory.cs.sort.AbstractSort;
+import edu.emory.cs.sort.distribution.LSDRadixSort;
+import edu.emory.cs.sort.divide_conquer.IntroSort;
 import edu.emory.cs.utils.Utils;
 
 import java.lang.reflect.Array;
@@ -29,64 +32,34 @@ import java.util.Comparator;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class HybridSortHW<T extends Comparable<T>> implements HybridSort<T>  {
-    ShellSortQuiz shell=new ShellSortQuiz();
+    IntroSort intro= new IntroSort<T>(new ShellSortKnuth<T>());
     @Override
     public T[] sort(T[][] input) {
-        //check ascending, if yes, just keep the array
-        //then check descending, if yes, reverse array
-        //else use shell sort
-        int l=0;
-        for (int i=0;i<input.length;i++) {
-            l+=input[i].length;
-            if (checkAscending(input[i])==true) {
-//                System.out.println(Arrays.toString(input[i]));
-                continue;
-            }
-            else if (checkDescending(input[i])==true)
-                reverseArray(input[i]);
-            else
-                shell.sort(input[i]);
-
-//            System.out.println(Arrays.toString(input[i]));
-        }
-        //merge sorted arrays
-        //try 1 merge with original order
-        T[] result=mergenatural(input);
-//        System.out.println(Arrays.toString(result));
-        return result;
-    }
-    //is recursively faster?
-    //try 1 一个个merge
-    public T[] mergeAll(T[][] input,int len){
-        T[] result=(T[])Array.newInstance(input[0][0].getClass(), len);
-        int i=0;
-
-        while (input.length>1){
-            while (i<input.length/2) {
-                T[][] temp=(T[][])Array.newInstance(input[0][0].getClass(), (input.length+1)/2,1);
-                temp[i]=merge2Arrays(input[2 * i - 1], input[2 * i - 2]);
+        //new merging idea:
+        //create only 1 final array
+        //int l=0;
+        for (int i = 0; i < input.length; i++) {
+            //l+=input[i].length;
+            if (!checkAscending(input[i])) {
+                if (checkDescending(input[i])) {
+                    reverseArray(input[i]);
+                } else {
+                    intro.sort(input[i]);
+                }
             }
         }
-        return null;
+        //return mergenatural(input);
+        return mergeRecursive(input);
     }
 
-    public T[] mergenatural(T[][] input){
-        T[] temp=input[0];
-        for (int i=1;i<input.length;i++){
-                temp=merge2Arrays(temp, input[i]);
-            }
 
-        return temp;
-    }
 
 
     public boolean checkAscending(T[] input) {
         if (input.length<=1)
             return true;
-
         for (int i=1; i< input.length; i++){
             if ((input[i].compareTo(input[i - 1]))<0){
-//                System.out.println("not as");
                 return false;
             }
         }
@@ -98,7 +71,6 @@ public class HybridSortHW<T extends Comparable<T>> implements HybridSort<T>  {
             return false;
         for (int i=1; i< input.length; i++){
             if ((input[i].compareTo(input[i - 1]))>0){
-
                 return false;
             }
         }
@@ -106,39 +78,41 @@ public class HybridSortHW<T extends Comparable<T>> implements HybridSort<T>  {
     }
 
     public void reverseArray(T[] input){
-        // we already established descending,
         T temp;
         int n=input.length;
         for (int i=0; i<n/2;i++){
-            //System.out.println(i);
             temp=input[i];
             input[i]=input[n-i-1];
             input[n-i-1]=temp;
         }
     }
-
-    protected T[] merge2Arrays(T[] input1, T[] input2) {
-        int fst = 0, snd = 0, a=input1.length, b=input2.length, n = input1.length+input2.length;
-        T[] result=(T[])Array.newInstance(input1[0].getClass(), input1.length + input2.length);
-
-        for (int k = 0; k < n; k++) {
-            if (fst >= a)                    // no key left in the 1st half
-                assign(result, k, input2[snd++]);
-            else if (snd >= b)                  // no key left in the 2nd half
-                assign(result, k, input1[fst++]);
-            else if (input1[fst].compareTo(input2[snd]) < 0)    // 1st key < 2nd key
-                assign(result, k, input1[fst++]);
-            else
-                assign(result, k, input2[snd++]);
+    public T[] mergeRecursive(T[][] input) {
+        if (input.length == 1) {
+            return input[0];
         }
-        return result;
+        int mid = input.length / 2;
+        T[][] left = Arrays.copyOfRange(input, 0, mid);
+        T[][] right = Arrays.copyOfRange(input, mid, input.length);
+        return merge2Arrays(mergeRecursive(left), mergeRecursive(right));
+    }
+    public T[] mergenatural(T[][] input){
+        T[] temp=input[0];
+        for (int i=1;i<input.length;i++){
+            temp=merge2Arrays(temp, input[i]);
+        }
+        return temp;
     }
 
-    protected void assign(T[] array, int index, T value) {
-        array[index] = value;
+    private T[] merge2Arrays(T[] a, T[] b) {
+        int i = 0, j = 0, k = 0;
+        T[] merged = (T[])Array.newInstance(a[0].getClass(), a.length + b.length);
+        while (i < a.length && j < b.length) {
+            if (a[i].compareTo(b[j]) < 0) merged[k++] = a[i++];
+            else merged[k++] = b[j++];
+        }
+        while (i < a.length) merged[k++] = a[i++];
+        while (j < b.length) merged[k++] = b[j++];
+        return merged;
     }
-
-
-
 
 }
