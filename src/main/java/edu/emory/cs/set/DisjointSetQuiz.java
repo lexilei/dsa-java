@@ -19,35 +19,12 @@ package edu.emory.cs.set;
 public class DisjointSetQuiz {
     static public void main(String[] args) {
         DisjointSet ds = new DisjointSet(5);
-        for (int i=0; i<ds.subsets.length;i++){
-            System.out.println(ds.subsets[i]);
-        }
-        System.out.println(ds.union(0,1));
-        System.out.println("after 0,1");
-        for (int i=0; i<ds.subsets.length;i++){
-            System.out.println(ds.subsets[i]);
-        }
-        System.out.println(ds.union(2,3));
-        System.out.println("after 2,3");
-        for (int i=0; i<ds.subsets.length;i++){
-            System.out.println(ds.subsets[i]);
-        }
-        System.out.println(ds.union(3,4));
-        System.out.println("after 3,4");
-        for (int i=0; i<ds.subsets.length;i++){
-            System.out.println(ds.subsets[i]);
-        }
-        System.out.println(ds.union(1,3));
-        System.out.println("after 1,3");
-        System.out.println(ds.subsets.toString());
-        System.out.println(ds.subsets.length);
-        for (int i=0; i<ds.subsets.length;i++){
-            System.out.println(ds.subsets[i]);
-        }
-        ds.find(0);
-        for (int i=0; i<ds.subsets.length;i++){
-            System.out.println(ds.subsets[i]);
-        }
+        ds.union(0,1);
+        ds.union(2,3);
+        ds.union(3,4);
+        ds.union(1,3);
+        //ds.find(0);
+
     }
 
 }
