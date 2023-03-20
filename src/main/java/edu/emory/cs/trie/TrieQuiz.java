@@ -16,7 +16,6 @@ public class TrieQuiz extends Trie<Integer> {
      * @return the list of entities (e.g., [Entity(14, 25, 1), Entity(44, 57, 0)]).
      */
     List<Entity> getEntities(String input) {
-        // TODO: to be updated
         Map<String, Integer> countryMap = new HashMap<>();
         this.makeCountryMap("", this.getRoot(), countryMap);
 
