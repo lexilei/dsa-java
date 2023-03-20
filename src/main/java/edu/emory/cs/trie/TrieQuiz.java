@@ -19,19 +19,18 @@ public class TrieQuiz extends Trie<Integer> {
         Map<String, Integer> countryMap = new HashMap<>();
         this.makeCountryMap("", this.getRoot(), countryMap);
 
-        Set<String> keySet = countryMap.keySet();
         List<Entity> answer = new ArrayList<>();
 
-        int beginIndex;
-        int endIndex;
-
-        for (String key : keySet) {
-            if (input.contains(key)) {
-                beginIndex = input.indexOf(key);
-                endIndex = beginIndex + key.length();
-                answer.add(new Entity(beginIndex, endIndex, countryMap.get(key)));
+        for (Map.Entry<String, Integer> entry : countryMap.entrySet()) {
+            String country = entry.getKey();
+            int id = entry.getValue();
+            if (input.contains(country)) {
+                int beginIndex = input.indexOf(country);
+                int endIndex = beginIndex + country.length();
+                answer.add(new Entity(beginIndex, endIndex, id));
             }
         }
+
         return answer;
     }
 
