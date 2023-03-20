@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="clean final version hw1">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/set/DisjointSetQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/set/DisjointSetQuiz.java" afterDir="false" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="clean final version quiz 6">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/Trie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/TrieNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/TrieQuiz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/Autocomplete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHWExtra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +208,7 @@
       <workItem from="1677783298052" duration="937000" />
       <workItem from="1677793011297" duration="39000" />
       <workItem from="1678686735217" duration="1937000" />
-      <workItem from="1678999423238" duration="5232000" />
+      <workItem from="1678999423238" duration="5656000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -336,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679301945546</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="clean final version quiz 6">
+      <created>1679302091092</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1679302091092</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +383,8 @@
     <MESSAGE value="suddenly it's not printing speed..." />
     <MESSAGE value="okay now it's slightly faster" />
     <MESSAGE value="clean final version hw1" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean final version hw1" />
+    <MESSAGE value="clean final version quiz 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean final version quiz 6" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
