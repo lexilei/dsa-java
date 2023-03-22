@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="uploading some tests">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/TrieQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/TrieQuiz.java" afterDir="false" />
-    </list>
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="checked out" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +78,7 @@
       <recent name="edu.emory.cs.tree" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.HybridSortTest">
     <configuration name="HybridSortTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -202,7 +199,7 @@
       <workItem from="1677783298052" duration="937000" />
       <workItem from="1677793011297" duration="39000" />
       <workItem from="1678686735217" duration="1937000" />
-      <workItem from="1678999423238" duration="9204000" />
+      <workItem from="1678999423238" duration="10070000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -365,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679307164463</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="checked out">
+      <created>1679308119198</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1679308119198</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,7 +405,8 @@
     <MESSAGE value="clean final version quiz 6" />
     <MESSAGE value="quiz 4" />
     <MESSAGE value="uploading some tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="uploading some tests" />
+    <MESSAGE value="checked out" />
+    <option name="LAST_COMMIT_MESSAGE" value="checked out" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
