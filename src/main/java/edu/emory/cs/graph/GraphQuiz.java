@@ -15,6 +15,13 @@
  */
 package edu.emory.cs.graph;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 /** @author Jinho D. Choi */
 public class GraphQuiz extends Graph {
     public GraphQuiz(int size) { super(size); }
@@ -22,7 +29,40 @@ public class GraphQuiz extends Graph {
 
     /** @return the total number of cycles in this graph. */
     public int numberOfCycles() {
-        // TODO: to be updated
-        return 0;
+        int count=0;
+        Deque<Integer> notVisited = IntStream.range(0, size()).boxed().collect(Collectors.toCollection(ArrayDeque::new));
+
+        while (!notVisited.isEmpty()) {
+            if (containsCycleAux(notVisited.poll(), notVisited, new HashSet<>()))
+                count++;
+        }
+
+        return count;
     }
+    private boolean containsCycleAux(int target, Deque<Integer> notVisited, Set<Integer> visited) {
+        notVisited.remove(target);
+        visited.add(target);
+
+        for (Edge edge : getIncomingEdges(target)) {
+            if (visited.contains(edge.getSource()))
+                return true;
+
+            if (containsCycleAux(edge.getSource(), notVisited, new HashSet<>(visited)))
+                return true;
+        }
+
+        return false;
+    }
+
+//    public static void main(String[] args){
+//        GraphQuiz graph = new GraphQuiz(5);
+//
+//        graph.setDirectedEdge(0, 1, 1);
+//        graph.setDirectedEdge(1, 0, 1);
+//        graph.setDirectedEdge(2, 1, 1);
+//        graph.setDirectedEdge(2, 3, 1);
+//        graph.setDirectedEdge(3, 4, 1);
+//        graph.setDirectedEdge(4, 2, 1);
+//        System.out.print(graph.numberOfCycles());
+//    }
 }

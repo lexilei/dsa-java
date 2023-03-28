@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="checked out" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="initializing graphs">
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/GraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/GraphQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/GraphQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +84,7 @@
       <recent name="edu.emory.cs.tree" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.HybridSortTest">
+  <component name="RunManager">
     <configuration name="HybridSortTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -200,6 +206,8 @@
       <workItem from="1677793011297" duration="39000" />
       <workItem from="1678686735217" duration="1937000" />
       <workItem from="1678999423238" duration="10070000" />
+      <workItem from="1679499226082" duration="7105000" />
+      <workItem from="1680033047790" duration="572000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -369,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679308119198</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="initializing graphs">
+      <created>1679499488118</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1679499488118</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +421,8 @@
     <MESSAGE value="quiz 4" />
     <MESSAGE value="uploading some tests" />
     <MESSAGE value="checked out" />
-    <option name="LAST_COMMIT_MESSAGE" value="checked out" />
+    <MESSAGE value="initializing graphs" />
+    <option name="LAST_COMMIT_MESSAGE" value="initializing graphs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
