@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="initializing graphs">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/GraphTest.java" afterDir="false" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="not yet clean code but here you go">
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/GraphQuizTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/GraphQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/GraphQuiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +205,7 @@
       <workItem from="1678686735217" duration="1937000" />
       <workItem from="1678999423238" duration="10070000" />
       <workItem from="1679499226082" duration="7105000" />
-      <workItem from="1680033047790" duration="572000" />
+      <workItem from="1680033047790" duration="13674000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -384,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679499488118</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="not yet clean code but here you go">
+      <created>1680033943707</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1680033943707</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,10 +427,14 @@
     <MESSAGE value="uploading some tests" />
     <MESSAGE value="checked out" />
     <MESSAGE value="initializing graphs" />
-    <option name="LAST_COMMIT_MESSAGE" value="initializing graphs" />
+    <MESSAGE value="not yet clean code but here you go" />
+    <option name="LAST_COMMIT_MESSAGE" value="not yet clean code but here you go" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/dsa_java$GraphQuizTest.ic" NAME="GraphQuizTest Coverage Results" MODIFIED="1680038771228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

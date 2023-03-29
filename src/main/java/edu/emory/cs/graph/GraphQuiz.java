@@ -31,38 +31,67 @@ public class GraphQuiz extends Graph {
     public int numberOfCycles() {
         int count=0;
         Deque<Integer> notVisited = IntStream.range(0, size()).boxed().collect(Collectors.toCollection(ArrayDeque::new));
-
-        while (!notVisited.isEmpty()) {
-            if (containsCycleAux(notVisited.poll(), notVisited, new HashSet<>()))
-                count++;
-        }
-
+        Set<Integer> visited=new HashSet<>();
+        count+=countingCycles(notVisited.poll(), new ArrayDeque<>(notVisited), new HashSet<>(visited),0);
+//        while (!notVisited.isEmpty()) {
+//            int target=notVisited.peek();
+//            int a=count;
+//            count+=countingCycles(notVisited.poll(), new ArrayDeque<>(notVisited), new HashSet<>(visited),target);
+//            //visited.add(target);
+//            System.out.println(target+" "+(count-a));
+//        }
         return count;
     }
-    private boolean containsCycleAux(int target, Deque<Integer> notVisited, Set<Integer> visited) {
+    private int countingCycles(int target, Deque<Integer> notVisited, Set<Integer> visited,int parent) {
         notVisited.remove(target);
         visited.add(target);
+        if (notVisited.isEmpty()) return 0;
+        int count=0;
 
         for (Edge edge : getIncomingEdges(target)) {
-            if (visited.contains(edge.getSource()))
-                return true;
 
-            if (containsCycleAux(edge.getSource(), notVisited, new HashSet<>(visited)))
-                return true;
+            int source = edge.getSource();
+            if (source == parent) count++;
+            else if (visited.contains(source)) continue;
+            else {
+                int a= countingCycles(source, notVisited, new HashSet<>(visited),parent);
+                count+=a;
+            }
+
         }
-
-        return false;
+        return count;
     }
 
-//    public static void main(String[] args){
-//        GraphQuiz graph = new GraphQuiz(5);
-//
-//        graph.setDirectedEdge(0, 1, 1);
-//        graph.setDirectedEdge(1, 0, 1);
-//        graph.setDirectedEdge(2, 1, 1);
-//        graph.setDirectedEdge(2, 3, 1);
-//        graph.setDirectedEdge(3, 4, 1);
-//        graph.setDirectedEdge(4, 2, 1);
-//        System.out.print(graph.numberOfCycles());
-//    }
+
+
+
+
+    public static void main(String[] args){
+        GraphQuiz g = new GraphQuiz(5);
+        g.setDirectedEdge(0, 1, 0);
+        g.setDirectedEdge(0, 2, 0);
+        g.setDirectedEdge(2, 1, 0);
+        g.setDirectedEdge(2, 3, 0);
+        g.setDirectedEdge(3, 4, 0);
+        g.setDirectedEdge(4, 2, 0);
+        System.out.println(g.numberOfCycles());//should be 1
+
+//        GraphQuiz g = new GraphQuiz(5);
+//        g.setDirectedEdge(0, 1, 0);
+//        g.setDirectedEdge(0, 2, 0);
+//        g.setDirectedEdge(2, 1, 0);
+//        g.setDirectedEdge(2, 3, 0);
+//        g.setDirectedEdge(3, 4, 0);
+//        g.setDirectedEdge(4, 2, 0);
+//        System.out.print(g.numberOfCycles());
+
+//        GraphQuiz g = new GraphQuiz(5);
+//        g.setDirectedEdge(0, 1, 0);
+//        g.setDirectedEdge(1, 2, 0);
+//        g.setDirectedEdge(1, 3, 0);
+//        g.setDirectedEdge(2, 0, 0);
+//        g.setDirectedEdge(3, 4, 0);
+//        g.setDirectedEdge(4, 2, 0);
+//        System.out.print(g.numberOfCycles());
+    }
 }
