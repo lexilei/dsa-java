@@ -69,7 +69,7 @@ public class GraphQuizTest {
         g.setDirectedEdge(2, 0, 0);
         g.setDirectedEdge(3, 4, 0);
         g.setDirectedEdge(4, 2, 0);
-
+        System.out.println(g.numberOfCycles());
         assertEquals(2, g.numberOfCycles());
     }
 
@@ -113,7 +113,7 @@ public class GraphQuizTest {
         g.setDirectedEdge(4, 2, 0);
         g.setDirectedEdge(4, 3, 0);
         g.setDirectedEdge(5, 4, 0);
-
+        System.out.println(g.numberOfCycles());
         assertEquals(7, g.numberOfCycles());
     }
 }

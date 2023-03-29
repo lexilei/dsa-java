@@ -32,19 +32,19 @@ public class GraphQuiz extends Graph {
         int count=0;
         Deque<Integer> notVisited = IntStream.range(0, size()).boxed().collect(Collectors.toCollection(ArrayDeque::new));
         Set<Integer> visited=new HashSet<>();
-        count+=countingCycles(notVisited.poll(), new ArrayDeque<>(notVisited), new HashSet<>(visited),0);
-//        while (!notVisited.isEmpty()) {
-//            int target=notVisited.peek();
-//            int a=count;
-//            count+=countingCycles(notVisited.poll(), new ArrayDeque<>(notVisited), new HashSet<>(visited),target);
-//            //visited.add(target);
-//            System.out.println(target+" "+(count-a));
-//        }
+        //count+=countingCycles(notVisited.poll(), new ArrayDeque<>(notVisited), new HashSet<>(visited),0);
+        while (!notVisited.isEmpty()) {
+            int target=notVisited.peek();
+            int a=count;
+            count+=countingCycles(notVisited.poll(), new ArrayDeque<>(notVisited), new HashSet<>(visited),target);
+            //visited.add(target);
+            System.out.println(target+" "+(count-a));
+        }
         return count;
     }
     private int countingCycles(int target, Deque<Integer> notVisited, Set<Integer> visited,int parent) {
         notVisited.remove(target);
-        visited.add(target);
+        //visited.add(target);
         if (notVisited.isEmpty()) return 0;
         int count=0;
 
