@@ -52,7 +52,7 @@ public class AutocompleteTest {
 
         prefix = "sh";
         expected = List.of("ship", "she", "shell");
-        ac.pickCandidate(prefix, "ship");
+        ac.pickCandidate("sh", "ship");
         testGetCandidates(ac, eval, prefix, expected);
 
         System.out.printf("Score: %d/%d\n", eval.correct, eval.total);

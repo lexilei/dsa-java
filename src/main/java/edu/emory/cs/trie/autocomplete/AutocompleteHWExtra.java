@@ -15,7 +15,6 @@
  */
 package edu.emory.cs.trie.autocomplete;
 import edu.emory.cs.trie.TrieNode;
-import edu.emory.cs.trie.Trie;
 
 import java.util.*;
 import java.util.List;
