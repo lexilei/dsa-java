@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="savepoint">
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/dict.txt" afterDir="false" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="savefile 2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTPrim.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/dic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/test3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHWExtra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHWExtra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/country_names.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/country_names.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/dict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/dict.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,13 +61,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2KWAJTaTo1uPcR6Nkh3VEUHu4vx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -232,7 +241,8 @@
       <workItem from="1678999423238" duration="10070000" />
       <workItem from="1679499226082" duration="7105000" />
       <workItem from="1680033047790" duration="19698000" />
-      <workItem from="1680491930383" duration="6002000" />
+      <workItem from="1680491930383" duration="6886000" />
+      <workItem from="1681103642958" duration="14149000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -444,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680497984388</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="savefile 2">
+      <created>1680499399071</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1680499399071</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +490,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hi, now it's after office hours first push" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="quiz1 first attemp" />
     <MESSAGE value="quiz 2 code part finished" />
     <MESSAGE value="quiz 3 initialization progress checkpoint" />
@@ -498,7 +515,8 @@
     <MESSAGE value="broke my code but save point, trying to restart" />
     <MESSAGE value="passed?? or still funky?" />
     <MESSAGE value="savepoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="savepoint" />
+    <MESSAGE value="savefile 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="savefile 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
