@@ -15,6 +15,9 @@ public class AutocompleteHWExtra<T> extends Autocomplete<T> {
 
     @Override
     public List<String> getCandidates(String prefix) {
+        if (prefix==""){
+            return findfirst();
+        }
         prefix = prefix.trim();
         TrieNode<T> node = getNode(prefix);
 
@@ -50,6 +53,14 @@ public class AutocompleteHWExtra<T> extends Autocomplete<T> {
         }
     }
 
+    private List<String> findfirst() {
+        List<String> candidates = new ArrayList<>();
+        for (Character key : getRoot().getChildrenMap().keySet()) {
+            candidates.add(key.toString());
+            if (candidates.size()==getMax()) return candidates;
+        }
+        return candidates;
+    }
     @Override
     public void pickCandidate(String prefix, String candidate) {
         if (candidate == null) return;

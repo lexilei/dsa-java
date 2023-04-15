@@ -34,6 +34,9 @@ public class AutocompleteHW extends Autocomplete<List<String>> {
     }
     @Override
     public List<String> getCandidates(String prefix) {
+        if (prefix==""){
+            return findfirst();
+        }
         prefix = prefix.trim();
         TrieNode<List<String>> node = getNode(prefix);
         // Find all the candidates that start with the given prefix using DFS
@@ -55,8 +58,10 @@ public class AutocompleteHW extends Autocomplete<List<String>> {
                 candidates.add(candidate);
             }
         }
+
         return candidates;
     }
+
 
 
     private void searchHelper(TrieNode<List<String>> node, String prefix, Queue<String> queue) {
@@ -68,6 +73,18 @@ public class AutocompleteHW extends Autocomplete<List<String>> {
             searchHelper(child, prefix + key, queue);
         }
     }
+
+    private List<String> findfirst() {
+        List<String> candidates = new ArrayList<>();
+        for (Character key : getRoot().getChildrenMap().keySet()) {
+            candidates.add(key.toString());
+            if (candidates.size()==getMax()) return candidates;
+        }
+        return candidates;
+    }
+
+
+
 
     @Override
     public void pickCandidate(String prefix, String candidate) {
