@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="savefile 2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTPrim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/dic.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/test3.java" afterDir="false" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="okay push before I made self-destructive updates">
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/swy.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/Autocomplete3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHWExtra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHWExtra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/country_names.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/country_names.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/resources/dict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/dict.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +90,29 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="AutocompleteTest2.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;edu.emory.cs.trie.autocomplete.AutocompleteTest2.test&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="GraphQuizTest.testQuiz3" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -186,36 +205,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SortQuizTest.testRuntime" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;edu.emory.cs.sort.SortQuizTest.testRuntime&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AutocompleteTest2.test" />
         <item itemvalue="Gradle.GraphQuizTest.testQuiz3" />
         <item itemvalue="Gradle.GraphQuizTest.testQuiz6" />
         <item itemvalue="Gradle.HybridSortTest" />
         <item itemvalue="Gradle.HybridSortTest.testRobustness" />
-        <item itemvalue="Gradle.SortQuizTest.testRuntime" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +238,7 @@
       <workItem from="1679499226082" duration="7105000" />
       <workItem from="1680033047790" duration="19698000" />
       <workItem from="1680491930383" duration="6886000" />
-      <workItem from="1681103642958" duration="14149000" />
+      <workItem from="1681103642958" duration="17340000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -461,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680499399071</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="updated autocomplete which doesn't handle capitalized letters well">
+      <created>1681508969708</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1681508969708</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,8 +494,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="quiz1 first attemp" />
-    <MESSAGE value="quiz 2 code part finished" />
     <MESSAGE value="quiz 3 initialization progress checkpoint" />
     <MESSAGE value="quiz 3 attemp 1 still has main methods for testing" />
     <MESSAGE value="save for now, preliminary code, gonna get up and excercise for a bit" />
@@ -516,7 +517,9 @@
     <MESSAGE value="passed?? or still funky?" />
     <MESSAGE value="savepoint" />
     <MESSAGE value="savefile 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="savefile 2" />
+    <MESSAGE value="updated autocomplete which doesn't handle capitalized letters well" />
+    <MESSAGE value="okay push before I made self-destructive updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="okay push before I made self-destructive updates" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
