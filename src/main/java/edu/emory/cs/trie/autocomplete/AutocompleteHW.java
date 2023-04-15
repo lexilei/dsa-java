@@ -17,7 +17,7 @@
 package edu.emory.cs.trie.autocomplete;
 
 import edu.emory.cs.trie.TrieNode;
-
+import java.lang.*;
 import java.util.*;
 
 /**
@@ -28,16 +28,14 @@ public class AutocompleteHW extends Autocomplete<List<String>> {
         super(dict_file, max);
     }
     public TrieNode<List<String>> getNode(String prefix) {
-        TrieNode<List<String>> node=getRoot();
-        if (node.getKey()==prefix) return node;
+
+        return find(prefix);
 
     }
     @Override
     public List<String> getCandidates(String prefix) {
         prefix = prefix.trim();
-        System.out.println(prefix);
-        TrieNode<List<String>> node = find(prefix);
-        System.out.println(node);
+        TrieNode<List<String>> node = getNode(prefix);
         // Find all the candidates that start with the given prefix using DFS
         Queue<String> queue = new PriorityQueue<>(Comparator.comparing(String::length).thenComparing(String::compareTo));
         if (node != null) {

@@ -24,7 +24,7 @@ public class Autocomplete3 {
             String prefix;
             List<String> expected;
 
-            prefix = "a";
+            prefix = "";
             expected = List.of("a", "aa", "ab", "abc");
             testGetCandidates(ac, eval, prefix, expected);
 

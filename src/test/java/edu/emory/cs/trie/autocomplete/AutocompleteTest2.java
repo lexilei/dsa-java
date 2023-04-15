@@ -34,7 +34,7 @@ public class AutocompleteTest2 {
 
     @Test
     public void test() {
-        final String dict_file = "src/main/resources/dict.txt";
+        final String dict_file = "src/main/resources/dic.txt";
         final int max = 20;
 
         Autocomplete<?> ac = new AutocompleteHW(dict_file, max);

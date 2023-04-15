@@ -49,6 +49,10 @@ public class AutocompleteTest {
 
         //type 1 regular search
         //passed
+        prefix = "a";
+        expected = List.of("zoism", "zoist", "zoisite", "zoistic", "zoisites", "zoisitization");
+        testGetCandidates(ac, eval, prefix, expected);
+
         prefix = "zois";
         expected = List.of("zoism", "zoist", "zoisite", "zoistic", "zoisites", "zoisitization");
         testGetCandidates(ac, eval, prefix, expected);

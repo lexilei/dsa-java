@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="okay push before I made self-destructive updates">
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/swy.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/Autocomplete3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTestExtra.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHWExtra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHWExtra.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/resources/dict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/dict.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/Autocomplete3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/Autocomplete3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +240,7 @@
       <workItem from="1679499226082" duration="7105000" />
       <workItem from="1680033047790" duration="19698000" />
       <workItem from="1680491930383" duration="6886000" />
-      <workItem from="1681103642958" duration="17340000" />
+      <workItem from="1681103642958" duration="20957000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -464,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681508969708</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="okay push before I made self-destructive updates">
+      <created>1681524696638</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1681524696638</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
