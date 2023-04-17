@@ -19,7 +19,7 @@ public class MSTAllHW implements MSTAll {
 
         List<Edge> allEdges = new ArrayList<>(graph.getAllEdges());
         if(!isCompleteGraph(graph))
-            Collections.sort(allEdges);
+            quicksort(allEdges);
         else
             return generateAllSpanningTrees(graph, graph.size());
         List<SpanningTree> forest = new ArrayList<>();
@@ -44,10 +44,40 @@ public class MSTAllHW implements MSTAll {
             }
         }
 
+        System.out.println(forest.size());
+
         return forest;
     }
 
+    private void findSpanningTrees(List<Edge> edges, int vertex, SpanningTree currentTree, int edgeIndex, UnionFind uf,
+                                   List<SpanningTree> forest, double mstWeight, double totalWeight) {
 
+        double nextWeight;
+
+        if (totalWeight > mstWeight) {
+            return;
+        }
+
+        if (currentTree.size() == vertex - 1 && visitedAll(currentTree, vertex)) {
+            forest.add(new SpanningTree(currentTree));
+            return;
+        }
+
+        for (int i = edgeIndex; i < edges.size(); i++) {
+            Edge edge = edges.get(i);
+            if (uf.union(edge.getSource(), edge.getTarget())) {
+                nextWeight = totalWeight + edge.getWeight();
+                if(nextWeight <= mstWeight) {
+                    currentTree.addEdge(edge);
+                    UnionFind ufNext = new UnionFind(uf);
+                    totalWeight += edge.getWeight();
+                    findSpanningTrees(edges, vertex, currentTree, i + 1, ufNext, forest, mstWeight, totalWeight);
+                    totalWeight -= currentTree.getEdges().remove(currentTree.size() - 1).getWeight();
+                    uf.undo();
+                }
+            }
+        }
+    }
 
     public List<SpanningTree> generateAllSpanningTrees(Graph graph, int n) {
         List<SpanningTree> trees = new ArrayList<>();
@@ -141,7 +171,42 @@ public class MSTAllHW implements MSTAll {
         return tree;
     }
 
+    public static void quicksort(List<Edge> edges) {
+        quicksort(edges, 0, edges.size() - 1);
+    }
 
+    private static void quicksort(List<Edge> edges, int left, int right) {
+        if (left < right) {
+            int pivotIndex = partition(edges, left, right);
+            quicksort(edges, left, pivotIndex - 1);
+            quicksort(edges, pivotIndex + 1, right);
+        }
+    }
+
+    private static int partition(List<Edge> edges, int left, int right) {
+        Edge pivot = edges.get(right);
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (edges.get(j).getWeight() <= pivot.getWeight()) {
+                i++;
+                swap(edges, i, j);
+            }
+        }
+        swap(edges, i + 1, right);
+        return i + 1;
+    }
+
+    private static void swap(List<Edge> edges, int i, int j) {
+        Edge temp = edges.get(i);
+        edges.set(i, edges.get(j));
+        edges.set(j, temp);
+    }
+
+
+
+    public void remove(int i, SpanningTree currentTree) {
+        currentTree.getEdges().remove(i);
+    }
 
     static class UnionFind {
         int[] parent;
@@ -238,7 +303,25 @@ public class MSTAllHW implements MSTAll {
 
 
     public SpanningTree getMinimumSpanningTree(Graph graph) {
-        return new MSTKruskal().getMinimumSpanningTree(graph);
+        PriorityQueue<Edge> queue = new PriorityQueue<>(graph.getAllEdges());
+        DisjointSet forest = new DisjointSet(graph.size());
+        SpanningTree tree = new SpanningTree();
+
+        while (!queue.isEmpty()) {
+            Edge edge = queue.poll();
+
+            if (!forest.inSameSet(edge.getTarget(), edge.getSource())) {
+                tree.addEdge(edge);
+
+                // a spanning tree is found
+                if (tree.size() + 1 == graph.size())
+                    break;
+                // merge forests
+                forest.union(edge.getTarget(), edge.getSource());
+            }
+        }
+
+        return tree;
     }
 
     private boolean visitedAll(SpanningTree currentTree, int vertices) {
@@ -260,35 +343,6 @@ public class MSTAllHW implements MSTAll {
 
         return check.size() == vertices;
 
-    }
-
-    private void findSpanningTrees(List<Edge> edges, int vertex, SpanningTree currentTree, int edgeIndex, UnionFind uf,
-                                   List<SpanningTree> forest, double mstWeight, double totalWeight) {
-
-        double nextWeight;
-
-        if (totalWeight > mstWeight) {
-            return;
-        }
-
-        if (currentTree.size() == vertex - 1 && visitedAll(currentTree, vertex)) {
-            forest.add(new SpanningTree(currentTree));
-            return;
-        }
-        for (int i = edgeIndex; i < edges.size(); i++) {
-            Edge edge = edges.get(i);
-            if (uf.union(edge.getSource(), edge.getTarget())) {
-                nextWeight = totalWeight + edge.getWeight();
-                if(nextWeight <= mstWeight) {
-                    currentTree.addEdge(edge);
-                    UnionFind ufNext = new UnionFind(uf);
-                    totalWeight += edge.getWeight();
-                    findSpanningTrees(edges, vertex, currentTree, i + 1, ufNext, forest, mstWeight, totalWeight);
-                    totalWeight -= currentTree.getEdges().remove(currentTree.size() - 1).getWeight();
-                    uf.undo();
-                }
-            }
-        }
     }
 }
 

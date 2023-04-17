@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="preliminary push">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTAllHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTAllHW.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/span/MSTAllHWTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/span/MSTAllHWTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +234,7 @@
       <workItem from="1680033047790" duration="19698000" />
       <workItem from="1680491930383" duration="6886000" />
       <workItem from="1681103642958" duration="38357000" />
+      <workItem from="1681743747367" duration="608000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
