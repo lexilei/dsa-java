@@ -81,6 +81,7 @@ public class Graph {
         setDirectedEdge(target, source, weight);
     }
 
+
     public boolean containsCycle() {
         Deque<Integer> notVisited = IntStream.range(0, size()).boxed().collect(Collectors.toCollection(ArrayDeque::new));
 

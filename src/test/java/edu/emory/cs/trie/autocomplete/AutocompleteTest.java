@@ -37,7 +37,7 @@ public class AutocompleteTest {
         final String dict_file = "src/main/resources/dict.txt";
         final int max = 20;
 
-        Autocomplete<?> ac = new AutocompleteHW(dict_file, max);
+        Autocomplete<?> ac = new AutocompleteHWExtra(dict_file, max);
         Eval eval = new Eval();
         testAutocomplete(ac, eval);
     }
