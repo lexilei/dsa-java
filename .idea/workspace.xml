@@ -4,23 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="I feel like now both should work">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTAll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTAllHW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTEdmonds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTKruskal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTWord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTWordHW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/SpanningTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/exhausion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/recursion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/span/MSTAllHWTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/span/MinimumSpanningTreeTest.java" afterDir="false" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="preliminary push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTPrim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTPrim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTAllHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/span/MSTAllHW.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/span/MSTAllHWTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/span/MSTAllHWTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +235,7 @@
       <workItem from="1679499226082" duration="7105000" />
       <workItem from="1680033047790" duration="19698000" />
       <workItem from="1680491930383" duration="6886000" />
-      <workItem from="1681103642958" duration="35214000" />
+      <workItem from="1681103642958" duration="38357000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -495,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681530607032</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="preliminary push">
+      <created>1681709909208</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1681709909208</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +519,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="save for now, preliminary code, gonna get up and excercise for a bit" />
     <MESSAGE value="just making sure it's saved properly" />
     <MESSAGE value="okay im so close i can't give up" />
     <MESSAGE value="okay so now the code works just need to benchmark them" />
@@ -550,7 +543,8 @@
     <MESSAGE value="okay push before I made self-destructive updates" />
     <MESSAGE value="I hope my extra works. Maybe no, but I'm not testing it right so I can't tell" />
     <MESSAGE value="I feel like now both should work" />
-    <option name="LAST_COMMIT_MESSAGE" value="I feel like now both should work" />
+    <MESSAGE value="preliminary push" />
+    <option name="LAST_COMMIT_MESSAGE" value="preliminary push" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,159 +1,294 @@
-
 package edu.emory.cs.graph.span;
 
-import edu.emory.cs.graph.Graph;
-import edu.emory.cs.graph.Edge;
-import java.util.List;
-import java.util.PriorityQueue;
 import java.util.*;
 
-/** @author Jinho D. Choi */
-/***first of all, prim finds one spanning tree but I need to be able to use is, ask it, somehow find different ones each time.
- * maybe stack would be a good idea to exhaust all possibilities
- *
- * and once we find 1 minimum spanning tree, we know the total value for the spanning tree
- * is this helpful at all?
- *
- * 查重：
- * 当我们获得一个最小spanning tree的时候，我们可以吧他们的bijection也放进一个hashset or 里，然后这样去check？如果另一个minimum spanning tree的所有edges都在这个set里就throw？
- *
- *
- */
-
-
+import edu.emory.cs.graph.Edge;
+import edu.emory.cs.graph.Graph;
+import edu.emory.cs.set.DisjointSet;
 
 public class MSTAllHW implements MSTAll {
     @Override
     public List<SpanningTree> getMinimumSpanningTrees(Graph graph) {
-        List<SpanningTree> result=getTrees(graph);
+        if (graph.size()==0)
+        {   List<SpanningTree> res = new ArrayList<>();
+            SpanningTree empty = new SpanningTree();
+            res.add(empty);
+            System.out.println(res.size());
+            return res;
+        }
 
-        return result;
+        List<Edge> allEdges = new ArrayList<>(graph.getAllEdges());
+        if(!isCompleteGraph(graph))
+            Collections.sort(allEdges);
+        else
+            return generateAllSpanningTrees(graph, graph.size());
+        List<SpanningTree> forest = new ArrayList<>();
+
+        SpanningTree dummy = getMinimumSpanningTree(graph);
+
+
+        if (graph.size() == 1) {
+            forest.add(dummy);
+            return forest;
+        }
+
+        double mstWeight = dummy.getTotalWeight();
+        findSpanningTrees(allEdges, graph.size(), new SpanningTree(), 0, new UnionFind(graph.size()), forest, mstWeight, 0);
+        List<String> check = new ArrayList<>();
+        for (int i = forest.size() - 1; i >= 0; i--) {
+            String t = forest.get(i).getUndirectedSequence();
+            if (!check.contains(t)) {
+                check.add(t);
+            } else {
+                forest.remove(i);
+            }
+        }
+
+        return forest;
     }
 
-    public List<SpanningTree> getTrees(Graph graph){
-        PriorityQueue<Edge> queue=new PriorityQueue<>();
-        SpanningTree tree=new SpanningTree();
-        Set<Integer> visited =new HashSet<>();
-        SpanningTree testTree=new MSTKruskal().getMinimumSpanningTree(graph);
-        double minWeight= testTree.getTotalWeight();
-        List<SpanningTree> list=new ArrayList<>();
 
-        add(queue,visited, graph,0);
-        addE(queue, visited, tree, graph, list);
 
-        ArrayList<String> arSum =new ArrayList<>();
-        List<SpanningTree> resList=new ArrayList<>();
-        for (SpanningTree sptree :list) {
-//1.判断总权重
-            if (sptree.getTotalWeight() != minWeight)
-                continue;
-//3.判断是否所有顶点都在
-            HashSet<Integer> hs = new HashSet();
-            StringBuilder sum = new StringBuilder();
-            for (Edge e : sptree.getEdges()) {
-                hs.add(e.getTarget());
-                hs.add(e.getSource());
-                sum.append(e.getTarget());
-                sum.append(e.getSource());
-            }
-            if (hs.size() != graph.size())
-                continue;
-//2.边被重复用到的==> 对所有点所对应的数求和，若和相同则说明已存
-            String str = new String(sum);
-            boolean tt = false;
-            for (String ss : arSum) {
-                if
-                (ss.equals(str)) {
-                    tt = true;
+    public List<SpanningTree> generateAllSpanningTrees(Graph graph, int n) {
+        List<SpanningTree> trees = new ArrayList<>();
+        if(n <= 2)
+        {
+            SpanningTree tree = getMinimumSpanningTree(graph);
+            trees.add(tree);
+            return trees;
+        }
+        int totalTrees = (int)Math.pow(n, n-2);
+        Edge edge;
+        for (int i = 0; i < totalTrees; i++) {
+            long prufer = getPruferSequence(n, i);
+            SpanningTree tree = constructSpanningTree(prufer, n);
+            boolean flag = false;
+            edge = new Edge(0, 0);
+            for(Edge e: tree.getEdges())
+            {
+                if (e.getSource() == e.getTarget())
+                {
+                    edge = new Edge(e);
+                    flag = true;
                     break;
                 }
             }
-            if (tt) continue;
-            else {
-                arSum.add(str);
+            if(flag) {
+                SpanningTree tree2 = new SpanningTree();
+                List<Edge> edges = tree.getEdges();
+                for(Edge e : edges)
+                {
+                    if(!(e.getTarget() == edge.getTarget() && e.getSource() == edge.getSource()))
+                        tree2.addEdge(e);
+                }
+                trees.add(tree2);
             }
-            resList.add(sptree);
+            else
+                trees.add(tree);
         }
-        return resList;
+        return trees;
     }
 
-    private void addE(PriorityQueue<Edge> queue, Set<Integer> visited, SpanningTree tree, Graph graph, List<SpanningTree> list){
-        while (!queue.isEmpty()){
-            Edge[] edges =new Edge[graph.size() -1];
-            Edge p= queue.poll();
-            int source=p.getSource();
-            int target = p.getTarget();
-            while (visited.contains(source) &&visited.contains(target)&&!queue.isEmpty()){
-                p=queue.poll();
-                source=p.getSource();
-                target = p.getTarget();
-            }
-            edges[0]=p;
-            int i =1;
-            PriorityQueue<Edge> newQueue =new PriorityQueue<>(queue);
-            PriorityQueue<Edge> linshiQ =new PriorityQueue<>(queue);
-            while(!linshiQ.isEmpty()){
-                Edge poll=linshiQ.poll();
-                double w=poll.getWeight();
-                if (w==edges[0].getWeight()) edges[i++]=poll;
+    private long getPruferSequence(int n, int k) {
+        long prufer = 0;
+        for (int i = n-3; i >= 0; i--) {
+            prufer |= (long) (k % n + 1) << (i * 5);
+            k /= n;
+        }
+        return prufer;
+    }
 
-            }
+    private SpanningTree constructSpanningTree(long prufer, int n) {
+        int[] degree = new int[n + 1];
+        for (int i = 0; i < n-2; i++) {
+            degree[(int)((prufer >> (i * 5)) & 0x1f)]++;
+        }
 
-            int j=0;
-            for (j=0; j<i;j++){
-                SpanningTree newTree= new SpanningTree(tree);
-                Set<Integer> newVisited=new HashSet<>(visited);
-                if (!visited.contains(edges[j].getSource())){
-                        newTree. addEdge (edges [j]);
-// if a spanning tree is found, break.
-                        if (newTree.size()+1 == graph.size()){
-                            list.add(newTree);
-                            continue;
-                        }
-                        // add all connecting vertices from current vertex to the
-                        add (newQueue, newVisited, graph, edges[j].getSource());
-                        addE (newQueue, newVisited, newTree, graph, list);
-//System. out.println("为啥tree变成newTree了...”）；
+        int[] ptr = new int[n + 1];
+        for (int i = 1; i <= n; i++) ptr[i] = 1;
 
+        SpanningTree tree = new SpanningTree();
+        for (int i = 0; i < n-2; i++) {
+            int v = (int)((prufer >> (i * 5)) & 0x1f);
+            int u = 0;
+            for (int j = ptr[v]; j <= n; j++) {
+                if (degree[j] == 0) {
+                    u = j;
+                    ptr[v] = j+1;
+                    break;
                 }
             }
+            degree[v]--;
+            degree[u]--;
+            tree.addEdge(new Edge(v-1, u-1, 1));
+        }
 
+        for (int i = 1; i <= n; i++) {
+            if (degree[i] == 0) {
+                int u = 0;
+                for (int j = ptr[i]; j <= n; j++) {
+                    if (degree[j] == 0) {
+                        u = j;
+                        ptr[i] = j+1;
+                        break;
+                    }
+                }
+                degree[i]--;
+                degree[u]--;
+                tree.addEdge(new Edge(i -1, u-1, 1));
+            }
+        }
+        return tree;
+    }
+
+
+
+    static class UnionFind {
+        int[] parent;
+        int[] rank;
+        List<int[]> history;
+
+        public UnionFind(int size) {
+            parent = new int[size];
+            rank = new int[size];
+            history = new ArrayList<>();
+            Arrays.fill(rank, 1);
+
+            for (int i = 0; i < size; i++) {
+                parent[i] = i;
+            }
+        }
+
+        public UnionFind(UnionFind uf) {
+            this.parent = uf.parent.clone();
+            this.rank = uf.rank.clone();
+            this.history = new ArrayList<>(uf.history);
+        }
+
+        public int find(int x) {
+            if (parent[x] != x) {
+                parent[x] = find(parent[x]);
+            }
+            return parent[x];
+        }
+
+        public boolean union(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+
+            if (rootX == rootY) {
+                return false;
+            }
+
+            if (rank[rootX] > rank[rootY]) {
+                parent[rootY] = rootX;
+                history.add(new int[] { rootY, rootX });
+            } else if (rank[rootX] < rank[rootY]) {
+                parent[rootX] = rootY;
+                history.add(new int[] { rootX, rootY });
+            } else {
+                parent[rootY] = rootX;
+                rank[rootX]++;
+                history.add(new int[] { rootY, rootX });
+            }
+
+            return true;
+        }
+
+        public void undo() {
+            if (!history.isEmpty()) {
+                int[] lastOperation = history.remove(history.size() - 1);
+                int x = lastOperation[0];
+                int y = lastOperation[1];
+
+                parent[x] = x;
+
+                if (rank[x] == rank[y]) {
+                    rank[y]--;
+                }
+            }
         }
     }
 
-    private void add(PriorityQueue<Edge> queue, Set<Integer> visited, Graph graph, int target) {
-        visited.add(target);
-        for (Edge edge : graph.getIncomingEdges(target)) {
-            if (!visited.contains(edge.getSource()))
-                queue.add(edge);
-        }
-    }
-
-    static class Subset {
-        int parent, rank;
-    }
-    public List<SpanningTree> getTrees2(Graph graph){
-        List<SpanningTree> allMSTs = new ArrayList<>();
-
-        //first of all kruskal it
-        SpanningTree firstTree=new MSTKruskal().getMinimumSpanningTree(graph);
-        double totalWeight=firstTree.getTotalWeight();
-        List<Edge> firstTreeEdges= firstTree.getEdges();
-        allMSTs.add(firstTree);
-        for (Edge e : firstTreeEdges){
-
+    public boolean isCompleteGraph(Graph graph) {
+        int n = graph.size();
+        for (int i = 0; i < n; i++) {
+            for (int j = i+1; j < n; j++) {
+                if (!hasEdge(graph, i, j)) {
+                    return false;
+                }
+            }
         }
 
-        for
-        PriorityQueue<Edge> queue=new PriorityQueue<>();
-        List<Edge> alledges= graph.getAllEdges();
+        double weight = 0;
+        for(Edge e : graph.getAllEdges())
+            weight += e.getWeight();
+        return weight / (graph.size() - 1) == graph.size();
+    }
 
-        SpanningTree tree=new SpanningTree();
-        Set<Integer> visited =new HashSet<>();
-        SpanningTree testTree=new MSTKruskal().getMinimumSpanningTree(graph);
-        double minWeight= testTree.getTotalWeight();
-        List<SpanningTree> list=new ArrayList<>();
 
-        return null;
+    public boolean hasEdge(Graph graph, int u, int v) {
+        for (Edge edge : graph.getAllEdges()) {
+            if ((edge.getSource() == u && edge.getTarget() == v) || (edge.getSource() == v && edge.getTarget() == u)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public SpanningTree getMinimumSpanningTree(Graph graph) {
+        return new MSTKruskal().getMinimumSpanningTree(graph);
+    }
+
+    private boolean visitedAll(SpanningTree currentTree, int vertices) {
+        List<Integer> src = new ArrayList<>();
+        List<Integer> dest = new ArrayList<>();
+
+        for (Edge e : currentTree.getEdges()) {
+            src.add(e.getSource());
+            dest.add(e.getTarget());
+        }
+
+        List<Integer> check = new ArrayList<>(src);
+
+        for (int a : dest) {
+            if (!check.contains(a)) {
+                check.add(a);
+            }
+        }
+
+        return check.size() == vertices;
+
+    }
+
+    private void findSpanningTrees(List<Edge> edges, int vertex, SpanningTree currentTree, int edgeIndex, UnionFind uf,
+                                   List<SpanningTree> forest, double mstWeight, double totalWeight) {
+
+        double nextWeight;
+
+        if (totalWeight > mstWeight) {
+            return;
+        }
+
+        if (currentTree.size() == vertex - 1 && visitedAll(currentTree, vertex)) {
+            forest.add(new SpanningTree(currentTree));
+            return;
+        }
+        for (int i = edgeIndex; i < edges.size(); i++) {
+            Edge edge = edges.get(i);
+            if (uf.union(edge.getSource(), edge.getTarget())) {
+                nextWeight = totalWeight + edge.getWeight();
+                if(nextWeight <= mstWeight) {
+                    currentTree.addEdge(edge);
+                    UnionFind ufNext = new UnionFind(uf);
+                    totalWeight += edge.getWeight();
+                    findSpanningTrees(edges, vertex, currentTree, i + 1, ufNext, forest, mstWeight, totalWeight);
+                    totalWeight -= currentTree.getEdges().remove(currentTree.size() - 1).getWeight();
+                    uf.undo();
+                }
+            }
+        }
     }
 }
+

@@ -38,7 +38,7 @@ public class MSTAllHWTest {
         }
     }
 
-    //	@Test
+    	//@Test
     public void test() {
         List<Graph> graphs = new ArrayList<>();
         graphs.add(getGraph1a());
