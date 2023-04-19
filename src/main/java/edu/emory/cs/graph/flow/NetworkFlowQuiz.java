@@ -15,6 +15,7 @@
  */
 package edu.emory.cs.graph.flow;
 
+import edu.emory.cs.graph.Edge;
 import edu.emory.cs.graph.Graph;
 import edu.emory.cs.graph.Subgraph;
 
@@ -23,6 +24,7 @@ import java.util.Set;
 
 /** @author Jinho D. Choi */
 public class NetworkFlowQuiz {
+    //only s and t, with no edge and with one edge
     /**
      * Using depth-first traverse.
      * @param graph  a directed graph.
@@ -31,7 +33,29 @@ public class NetworkFlowQuiz {
      * @return a set of all augmenting paths between the specific source and target vertices in the graph.
      */
     public Set<Subgraph> getAugmentingPaths(Graph graph, int source, int target) {
+        Set<Subgraph> result= new HashSet<Subgraph>();
+        Subgraph sub;
+        while ((sub = helper(graph, new Subgraph(), source, target)) != null) {
+            result.add(sub);
+        }
         // TODO: to be updated
+        return result;
+    }
+
+    private Subgraph helper(Graph graph,  Subgraph sub, int source, int target) {
+        if (source == target) return sub;
+        Subgraph tmp;
+
+        for (Edge edge : graph.getIncomingEdges(target)) {
+            if (sub.contains(edge.getSource())) continue;    // cycle
+            tmp = new Subgraph(sub);
+            tmp.addEdge(edge);
+            tmp = helper(graph,  tmp, source, edge.getSource());
+            if (tmp != null) return tmp;
+        }
+
         return null;
     }
+
+
 }

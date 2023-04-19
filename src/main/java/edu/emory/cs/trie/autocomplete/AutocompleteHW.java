@@ -73,7 +73,6 @@ public class AutocompleteHW extends Autocomplete<List<String>> {
             searchHelper(child, prefix + key, queue);
         }
     }
-
     private List<String> findfirst() {
         List<String> candidates = new ArrayList<>();
         for (Character key : getRoot().getChildrenMap().keySet()) {
@@ -82,9 +81,6 @@ public class AutocompleteHW extends Autocomplete<List<String>> {
         }
         return candidates;
     }
-
-
-
 
     @Override
     public void pickCandidate(String prefix, String candidate) {
