@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="try again">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/emory/cs/graph/flow/FordFulkersonTest.java" afterDir="false" />
+    <list default="true" id="83309bc9-4558-4801-bcbd-21b37f21038d" name="Changes" comment="initial push for quiz 9">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/Subgraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/Subgraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/flow/NetworkFlowQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/flow/NetworkFlowQuiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/trie/autocomplete/AutocompleteHW.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/flow/NetworkFlowQuizExtra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/emory/cs/graph/flow/NetworkFlowQuizExtra.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,7 @@
       <recent name="edu.emory.cs.tree" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AutocompleteTest2.test">
+  <component name="RunManager">
     <configuration name="AutocompleteTest2.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -239,7 +239,7 @@
       <workItem from="1681103642958" duration="38357000" />
       <workItem from="1681743747367" duration="2067000" />
       <workItem from="1681856226344" duration="1203000" />
-      <workItem from="1681918562443" duration="1817000" />
+      <workItem from="1681918562443" duration="6648000" />
     </task>
     <task id="LOCAL-00001" summary="hi, now it's after office hours first push">
       <created>1674512331221</created>
@@ -500,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681745098643</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="initial push for quiz 9">
+      <created>1681932560061</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1681932560061</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +537,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="okay im so close i can't give up" />
     <MESSAGE value="okay so now the code works just need to benchmark them" />
     <MESSAGE value="K finished everything for quiz 5" />
     <MESSAGE value="hw1 initialization" />
@@ -555,7 +561,8 @@
     <MESSAGE value="I feel like now both should work" />
     <MESSAGE value="preliminary push" />
     <MESSAGE value="try again" />
-    <option name="LAST_COMMIT_MESSAGE" value="try again" />
+    <MESSAGE value="initial push for quiz 9" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial push for quiz 9" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
