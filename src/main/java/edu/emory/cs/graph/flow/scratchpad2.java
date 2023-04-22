@@ -18,14 +18,11 @@ package edu.emory.cs.graph.flow;
 import edu.emory.cs.graph.Edge;
 import edu.emory.cs.graph.Graph;
 import edu.emory.cs.graph.Subgraph;
-import edu.emory.cs.set.DisjointSet;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /** @author Jinho D. Choi */
-public class NetworkFlowQuizExtra {
+public class scratchpad2 {
     /**
      * Using breadth-first traverse.
      * @param graph  a directed graph.
@@ -35,67 +32,44 @@ public class NetworkFlowQuizExtra {
      */
     public Set<Subgraph> getAugmentingPaths(Graph graph, int source, int target) {
         Set<Subgraph> augmentingPaths = new HashSet<>();
-        Queue<List<Edge>> incomplete_path = new LinkedList<>();
-        List<Deque<Edge>> outgoingEdgesAll = graph.getOutgoingEdges();
+        Queue<List<Edge>> incomplete_path = new LinkedList<>();   //store intermediate paths during the BFS traversal
+        List<Deque<Edge>> outgoingEdgesAll = graph.getOutgoingEdges();  //outgoing edges for all vertices
 
-        for (Edge edge : outgoingEdgesAll.get(source)) {
+        for (Edge edge : outgoingEdgesAll.get(source)) {    //edges from source vertex, get on the move
             incomplete_path.add(Collections.singletonList(edge));
         }
 
-        while (!incomplete_path.isEmpty()) {
-            List<Edge> currentPath = incomplete_path.poll();
-            int last_vertex = currentPath.get(currentPath.size() - 1).getTarget();
+        while (!incomplete_path.isEmpty()) {    //starts BFS traversal. stop when queue is empty.
+            List<Edge> currentPath = incomplete_path.poll();    //dequeue next possible path
+            int current = currentPath.get(currentPath.size() - 1).getTarget();  // Get target of the last edge in the current path
 
-            if (last_vertex == target) {
+            //If the target vertex of the last edge in the current path is the target vertex,
+            // create a new Subgraph, add all edges from the current path to the new subgraph,
+            // and add the new subgraph to the set of augmenting paths.
+            if (current == target) {
                 Subgraph path = new Subgraph();
                 for (Edge edge : currentPath) {
                     path.addEdge(edge);
                 }
                 augmentingPaths.add(path);
             } else {
+                // else create visited array to keep track of visit status.
                 boolean[] visited = new boolean[graph.size()];
                 for (Edge edge : currentPath) {
                     visited[edge.getSource()] = true;
                     visited[edge.getTarget()] = true;
                 }
 
-                Deque<Edge> outgoingEdges = outgoingEdgesAll.get(last_vertex);
+                Deque<Edge> outgoingEdges = outgoingEdgesAll.get(current);
                 for (Edge edge : outgoingEdges) {
                     if (!visited[edge.getTarget()]) {
-                        List<Edge> new_path = new ArrayList<>(currentPath);
-                        new_path.add(edge);
-                        incomplete_path.add(new_path);
+                        List<Edge> newPath = new ArrayList<>(currentPath);
+                        newPath.add(edge);
+                        incomplete_path.add(newPath);
                     }
                 }
             }
         }
         return augmentingPaths;
-    }
-
-    public static Graph getGraph4() {
-        Graph graph = new Graph(6);
-        int s = 0, t = 5;
-
-        graph.setDirectedEdge(s, 1, 4);
-        graph.setDirectedEdge(s, 2, 2);
-        graph.setDirectedEdge(1, 3, 3);
-        graph.setDirectedEdge(2, 3, 2);
-        graph.setDirectedEdge(2, 4, 3);
-        graph.setDirectedEdge(3, 2, 1);
-        graph.setDirectedEdge(3, t, 2);
-        graph.setDirectedEdge(4, t, 4);
-
-        return graph;
-    }
-
-    public static void main(String[] args){
-        NetworkFlowQuiz mfa = new NetworkFlowQuiz();
-        Graph one= getGraph4();
-        Set<Subgraph> a=mfa.getAugmentingPaths(one,0,one.size()-1);
-        for(Subgraph e:a){
-            System.out.println(e);
-            System.out.println("next");
-        }
-        System.out.println("\n");
     }
 }

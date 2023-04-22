@@ -34,29 +34,12 @@ public class NetworkFlowQuiz {
      */
     public Set<Subgraph> getAugmentingPaths(Graph graph, int source, int target) {
         Set<Subgraph> result= new HashSet<Subgraph>();
-        Subgraph sub;
         helper(graph, new Subgraph(), source, target, result);
 
-//        for (Subgraph a: result) {
-//            System.out.println(a);
-//        }
-        System.out.println(result.size());
         return result;
     }
 
     private void helper(Graph graph,  Subgraph sub, int source, int target,Set<Subgraph> result) {
-        //if (source == target) return sub;
-        Subgraph tmp;
-
-        for (Edge edge : graph.getIncomingEdges(target)) {
-            if (sub.contains(edge.getSource())) continue;    // cycle
-            tmp = new Subgraph(sub);
-            tmp.addEdge(edge);
-            helper2(graph,  tmp, source, edge.getSource(), result);
-        }
-
-    }
-    private void helper2(Graph graph,  Subgraph sub, int source, int target,Set<Subgraph> result) {
         if (source == target) result.add(sub);
         Subgraph tmp;
 
@@ -64,7 +47,7 @@ public class NetworkFlowQuiz {
             if (sub.contains(edge.getSource())) continue;    // cycle
             tmp = new Subgraph(sub);
             tmp.addEdge(edge);
-            helper2(graph,  tmp, source, edge.getSource(), result);;
+            helper(graph,  tmp, source, edge.getSource(), result);;
         }
 
     }
@@ -118,10 +101,25 @@ public class NetworkFlowQuiz {
 
         return graph;
     }
+    public static Graph getGraph4() {
+        Graph graph = new Graph(6);
+        int s = 0, t = 5;
+
+        graph.setDirectedEdge(s, 1, 4);
+        graph.setDirectedEdge(s, 2, 2);
+        graph.setDirectedEdge(1, 3, 3);
+        graph.setDirectedEdge(2, 3, 2);
+        graph.setDirectedEdge(2, 4, 3);
+        graph.setDirectedEdge(3, 2, 1);
+        graph.setDirectedEdge(3, t, 2);
+        graph.setDirectedEdge(4, t, 4);
+
+        return graph;
+    }
 
     public static void main(String[] args){
         NetworkFlowQuiz mfa = new NetworkFlowQuiz();
-        Graph one= getGraph0();
+        Graph one= getGraph4();
         Set<Subgraph> a=mfa.getAugmentingPaths(one,0,one.size()-1);
         for(Subgraph e:a){
             System.out.println(e);
