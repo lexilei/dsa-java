@@ -72,30 +72,4 @@ public class NetworkFlowQuizExtra {
         return augmentingPaths;
     }
 
-    public static Graph getGraph4() {
-        Graph graph = new Graph(6);
-        int s = 0, t = 5;
-
-        graph.setDirectedEdge(s, 1, 4);
-        graph.setDirectedEdge(s, 2, 2);
-        graph.setDirectedEdge(1, 3, 3);
-        graph.setDirectedEdge(2, 3, 2);
-        graph.setDirectedEdge(2, 4, 3);
-        graph.setDirectedEdge(3, 2, 1);
-        graph.setDirectedEdge(3, t, 2);
-        graph.setDirectedEdge(4, t, 4);
-
-        return graph;
-    }
-
-    public static void main(String[] args){
-        NetworkFlowQuiz mfa = new NetworkFlowQuiz();
-        Graph one= getGraph4();
-        Set<Subgraph> a=mfa.getAugmentingPaths(one,0,one.size()-1);
-        for(Subgraph e:a){
-            System.out.println(e);
-            System.out.println("next");
-        }
-        System.out.println("\n");
-    }
 }
